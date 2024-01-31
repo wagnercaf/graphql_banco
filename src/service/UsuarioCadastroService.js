@@ -6,6 +6,16 @@ class UsuarioCadastroService{
     }  
     contatos = async (obj, args, context, info) => await this.service("contatos");
 
+    contato = async ( filtro ) => {
+      if (filtro.id) {
+        return await this.service("contatos").where({ id: filtro.id }).first();
+      }
+      if (filtro.email) {
+        return await this.service("contatos").where({ email: filtro.email }).first();
+      }
+    }
+ 
+
     criarContato= async (data) =>
       await (await this.service("contatos").insert(data).returning("*"))[0];
 

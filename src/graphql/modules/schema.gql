@@ -18,6 +18,7 @@ input FiltroInput {
 
 type Query {
   contatos: [Contato]
+  contato(filtro: FiltroInput): Contato
 }
 
 type Mutation {

@@ -1,7 +1,9 @@
 
 module.exports = {
   Query: {
-    contatos: async (obj, args, context, info) =>  await context.UsuarioCadastroService.contatos(),    
+    contatos: async (obj, args, context, info) =>  await context.UsuarioCadastroService.contatos(),   
+
+    contato: async (obj, { filtro }, {UsuarioCadastroService}) =>  await UsuarioCadastroService.contato(filtro),  
   },
   Mutation: {
     criarContato: async (_, { data }, {UsuarioCadastroService}) =>
